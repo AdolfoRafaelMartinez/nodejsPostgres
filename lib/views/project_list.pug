@@ -13,8 +13,8 @@ block content
             a.show-modal(href='#') New
 
       main(container).notes-list
-        each note in data.notes
-          include components/note
+        each project in data.projects
+          include components/project
           hr
 
       .modal
