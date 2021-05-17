@@ -5,7 +5,7 @@ block content
     .container
 
       h1.title.has-text-centered
-        | Notes Board
+        | Project Board
 
       .tabs.is-centered
         ul
@@ -21,10 +21,10 @@ block content
         .modal-background
         .modal-card
           header.modal-card-head
-            p.modal-card-title Add note
+            p.modal-card-title Add project
             button.delete(aria-label='close')
           section.modal-card-body
-            form(action='/note' method='POST').note-form#note-form
+            form(action='/project' method='POST').note-form#note-form
               .field
                 .control
                   input.input(name='noteTitle' type='text' placeholder='Title')
