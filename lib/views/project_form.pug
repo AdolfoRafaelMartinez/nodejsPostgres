@@ -1,0 +1,36 @@
+extends layout
+
+block content
+  section.section
+    .container
+      h1.title.has-text-centered
+          | projects Board
+
+      .tabs.is-centered
+        ul
+          li: a(href='/project') List
+          li: a.show-modal(href='#') Update
+          li: a(href=`/project/${project.slug}/delete`) Delete
+  
+      include components/project
+
+      .modal
+        .modal-background
+        .modal-card
+          header.modal-card-head
+            p.modal-card-title Edit project
+            button.delete(aria-label='close')
+          section.modal-card-body
+            form(action=`/project/${project.slug}` method='PUT').note-form#note-form
+              .field
+                .control
+                  input.input(name='noteTitle' type='text' placeholder='Title' value=project.title)
+              .field
+                .control
+                  input.input(name='noteDescription' type='text' placeholder='Short description' value=project.description)
+              .field
+                .control
+                  textarea.textarea(name='noteContent' placeholder='Contents') #{project.content}
+              .field
+                .control
+                  button.button.is-link Save
